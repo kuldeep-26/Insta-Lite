@@ -34,11 +34,9 @@ async function registerController(req,res){
 async function loginController(req, res){
     const {username, password} = req.body
 
-    const isUser = await userModel.findOne({
-        username
-    })
+    const user = await userModel.findOne({username})
 
-    if(!isUser){
+    if(!user){
         return res.status(400).json({
             message:"Invalid User"
         })
@@ -53,7 +51,7 @@ async function loginController(req, res){
     }
 
     const token = jwt.sign({id:user._id}, process.env.JWT_SECRET_KEY)
-    res.cookie('userToken',token)
+    res.cookie('token',token)
 
     res.status(200).json({
         message:"user logged in successfully",
