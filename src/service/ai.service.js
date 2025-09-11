@@ -2,7 +2,7 @@ const { GoogleGenAI } = require("@google/genai");
 
 // The client gets the API key from the environment variable `GEMINI_API_KEY`.
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyB6VTe3WrXhA5Xs9i-P8uu1jZIG3dmMS-8", // process.env.GEMINI_API_KEY
+  // process.env.GEMINI_API_KEY
 });
 
 async function generateCaption(base64ImageFile) {
